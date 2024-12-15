@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     paths:
-      - version.txt # Trigger workflow only when version.txt changes
+      - alaskarfin/version.txt # Trigger workflow only when version.txt changes
 
 jobs:
   build-and-push:
@@ -29,8 +29,8 @@ jobs:
       - name: Build and Push Image
         uses: docker/build-push-action@v6
         with:
-          context: ./alaskarfin # Path to the build context
-          file: ./alaskarfin # Path to the Dockerfile
+          context: alaskarfin # Path to the build context
+          file: alaskarfin # Path to the Dockerfile
           push: true # Push the image to Docker Hub
           tags: |
             nomadics/alaskarfin:latest
