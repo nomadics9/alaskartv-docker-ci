@@ -37,7 +37,7 @@ jobs:
             nomadics/alaskarfin:latest
 
   build-alaskarseer:
-    if: contains(github.event.head_commit.message, 'alaskarseer/version.txt') # Only run if alaskarseer/version.txt changes
+    if: contains(github.event.commits.*.modified | join(' '), 'alaskarseer/version.txt')
     runs-on: ubuntu-latest
     environment: Dockerhub
 
