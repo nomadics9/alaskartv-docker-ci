@@ -1,0 +1,37 @@
+name: Build AlaskarSeer
+
+on:
+  push:
+    paths:
+      - alaskarseer/version.txt
+
+jobs:
+  build-alaskarseer:
+    runs-on: ubuntu-latest
+    environment: Dockerhub
+
+    steps:
+      # Step 1: Check out the repository
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      # Step 3: Log in to Docker Hub
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Step 4: Build and push the alaskarseer image
+      - name: Build and Push alaskarseer Image
+        uses: docker/build-push-action@v6
+        with:
+          context: alaskarseer # Path to the build context
+          file: alaskarseer/Dockerfile # Path to the Dockerfile
+          push: true
+          tags: |
+            nomadics/alaskarseer:latest
