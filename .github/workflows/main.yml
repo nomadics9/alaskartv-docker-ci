@@ -3,12 +3,14 @@ name: Build and Push Docker Image
 on:
   push:
     paths:
-      - alaskarfin/version.txt # Trigger workflow only when version.txt changes
+      - alaskarfin/version.txt
+      - alaskarseer/version.txt
 
 jobs:
   build-alaskarfin:
     runs-on: ubuntu-latest
     environment: Dockerhub
+    if: contains(github.event.head_commit.message, 'alaskarfin/version.txt')
 
     steps:
       # Step 1: Check out the repository
@@ -37,9 +39,9 @@ jobs:
             nomadics/alaskarfin:latest
 
   build-alaskarseer:
-    if: contains(github.event.commits.*.modified | join(' '), 'alaskarseer/version.txt')
     runs-on: ubuntu-latest
     environment: Dockerhub
+    if: contains(github.event.head_commit.message, 'alaskarseer/version.txt')
 
     steps:
       # Step 1: Check out the repository
