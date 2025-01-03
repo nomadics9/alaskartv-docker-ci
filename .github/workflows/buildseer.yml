@@ -8,8 +8,8 @@ on:
 jobs:
   build-alaskarseer:
     runs-on: ubuntu-22.04
-    container:
-      image: ubuntu:latest
+    # container:
+    #   image: ubuntu:latest
     environment: Dockerhub
 
     steps:
