@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-alaskarseer:
-    runs-on: ubuntu-24.04:docker
+    runs-on: ubuntu
     environment: Dockerhub
 
     steps:
