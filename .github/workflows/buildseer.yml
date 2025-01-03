@@ -7,13 +7,15 @@ on:
 
 jobs:
   build-alaskarseer:
-    runs-on: ubuntu
+    runs-on: docker
+    container:
+      image: ubuntu:latest
     environment: Dockerhub
 
     steps:
       # Step 1: Check out the repository
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       # Step 2: Set up Docker Buildx
       - name: Set up Docker Buildx
