@@ -8,7 +8,6 @@ on:
 jobs:
   build-alaskarseer:
     runs-on: host
-    environment: Dockerhub
 
     steps:
       # Step 1: Check out the repository
