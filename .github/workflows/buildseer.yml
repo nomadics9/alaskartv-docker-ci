@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-alaskarseer:
-    runs-on: ubuntu-22.04
+    runs-on: docker
     environment: Dockerhub
 
     steps:
@@ -18,8 +18,6 @@ jobs:
       # Step 2: Set up Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-        container: 
-          image: docker:20.10.24-cli
 
       # Step 3: Log in to Docker Hub
       - name: Log in to Docker Hub
@@ -27,8 +25,6 @@ jobs:
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-        container:
-          image: docker:20.10.24-cli
 
       # Step 4: Build and push the alaskarseer image
       - name: Build and Push alaskarseer Image
@@ -39,5 +35,3 @@ jobs:
           push: true
           tags: |
             nomadics/alaskarseer:latest
-        container:
-          image: docker:20.10.24-cli
