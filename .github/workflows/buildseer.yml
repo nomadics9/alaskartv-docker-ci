@@ -11,7 +11,7 @@ jobs:
     container: 
       image: catthehacker/ubuntu:act-latest
       env:
-        DOCKER_HOST: tcp://localhost:2376
+        DOCKER_HOST: tcp://daemon:2376
 
     steps:
       # Step 1: Check out the repository
