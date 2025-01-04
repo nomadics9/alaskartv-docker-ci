@@ -8,8 +8,10 @@ on:
 jobs:
   build-alaskarseer:
     runs-on: host
-    container: catthehacker/ubuntu:act-latest
-    options: --privileged
+    container: 
+      image: catthehacker/ubuntu:act-latest
+      volumes:
+        - /var/run/docker.sock:/var/run/docker.sock
 
     steps:
       # Step 1: Check out the repository
