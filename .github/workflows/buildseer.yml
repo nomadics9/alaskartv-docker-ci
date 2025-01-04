@@ -10,12 +10,8 @@ jobs:
     runs-on: host
     container: 
       image: catthehacker/ubuntu:act-latest
-      volumes:
-        - /certs:/certs
       env:
         DOCKER_HOST: tcp://daemon:2376
-        DOCKER_CERT_PATH: /certs/client
-        DOCKER_TLS_VERIFY: "1"
       privileged: true
 
     steps:
