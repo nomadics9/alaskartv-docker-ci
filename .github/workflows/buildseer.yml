@@ -7,7 +7,7 @@ on:
 
 jobs:
   build-alaskarseer:
-    runs-on: host
+    runs-on: docker
 
     steps:
       # Step 1: Check out the repository
