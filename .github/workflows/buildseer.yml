@@ -7,7 +7,11 @@ on:
 
 jobs:
   build-alaskarseer:
-    runs-on: docker
+    runs-on: host
+    services:
+      docker:
+        image: catthehacker/ubuntu:act-latest
+        options: --privileged
 
     steps:
       # Step 1: Check out the repository
