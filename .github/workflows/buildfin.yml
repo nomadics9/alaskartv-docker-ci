@@ -7,8 +7,7 @@ on:
 
 jobs:
   build-alaskarfin:
-    runs-on: ubuntu-latest
-    environment: Dockerhub
+    runs-on: host
 
     steps:
       # Step 1: Check out the repository
