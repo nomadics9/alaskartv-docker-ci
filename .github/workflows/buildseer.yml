@@ -10,8 +10,12 @@ jobs:
     runs-on: host
     container: 
       image: catthehacker/ubuntu:act-latest
+      volume:
+        - /certs:/certs
       env:
         DOCKER_HOST: tcp://daemon:2376
+        DOCKER_CERT_PATH: /certs/client
+        DOCKER_TLS_VERIFY: "1"
 
     steps:
       # Step 1: Check out the repository
