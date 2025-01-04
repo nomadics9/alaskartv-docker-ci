@@ -10,7 +10,7 @@ jobs:
     runs-on: host
     container: 
       image: catthehacker/ubuntu:act-latest
-      volume:
+      volumes:
         - /certs:/certs
       env:
         DOCKER_HOST: tcp://daemon:2376
