@@ -10,8 +10,8 @@ jobs:
     runs-on: host
     container: 
       image: catthehacker/ubuntu:act-latest
-      volumes:
-        - /var/run/docker.sock:/var/run/docker.sock
+      env:
+        DOCKER_HOST: tcp://localhost:2376
 
     steps:
       # Step 1: Check out the repository
