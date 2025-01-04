@@ -8,11 +8,6 @@ on:
 jobs:
   build-alaskarseer:
     runs-on: host
-    container: 
-      image: catthehacker/ubuntu:act-latest
-      env:
-        DOCKER_HOST: tcp://daemon:2376
-      privileged: true
 
     steps:
       # Step 1: Check out the repository
