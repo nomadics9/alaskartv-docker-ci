@@ -27,7 +27,7 @@ done
 FILE="$BASE_DIR/main.jellyfin.bundle.js"
 if [ -f "$FILE" ]; then
     echo "Updating enableBackdrops in: $FILE"
-    sed -i 's/enableBackdrops:function(){return _}/enableBackdrops:function(){return E}/g' "$FILE"
+    sed -i 's/enableBackdrops:function(){return R}/enableBackdrops:function(){return E}/g' "$FILE"
 else
     echo "File $FILE not found."
 fi
