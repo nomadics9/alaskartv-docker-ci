@@ -36,7 +36,7 @@ done
 # Update enableBackdrops function in main.jellyfin.bundle.js
 # This will change: enableBackdrops:function(){return _}
 # To:         enableBackdrops:function(){return E}
-FILE="$BASE_DIR/jellyfin/jellyfin-web/main.jellyfin.bundle.js"
+FILE="$BASE_DIR/main.jellyfin.bundle.js"
 if [[ -f "$FILE" ]]; then
     echo "Updating enableBackdrops in: $FILE"
     sed -i 's/enableBackdrops:function(){return _}/enableBackdrops:function(){return E}/g' "$FILE"
