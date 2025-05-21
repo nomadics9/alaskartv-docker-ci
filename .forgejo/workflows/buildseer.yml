@@ -47,8 +47,8 @@ jobs:
       - name: Build and Push Image
         uses: docker/build-push-action@v6
         with:
-          context: alaskarfin # Path to the build context
-          file: alaskarfin/Dockerfile # Path to the Dockerfile
+          context: alaskarseer # Path to the build context
+          file: alaskarseer/Dockerfile # Path to the Dockerfile
           push: true # Push the image to Docker Hub
           tags: |
             git.askar.tv/nomad/alaskarseer:latest
