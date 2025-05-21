@@ -34,3 +34,21 @@ jobs:
           push: true
           tags: |
             nomadics/alaskarseer:latest
+
+      # Step 5: Log in to Forgejo
+      - name: Log in to Forgejo
+        uses: docker/login-action@v3
+        with:
+          registry: git.askar.tv
+          username: nomad
+          password: ${{ secrets.FORGEJO_TOKEN }}
+
+      # Step 4: Build and push the Docker image
+      - name: Build and Push Image
+        uses: docker/build-push-action@v6
+        with:
+          context: alaskarfin # Path to the build context
+          file: alaskarfin/Dockerfile # Path to the Dockerfile
+          push: true # Push the image to Docker Hub
+          tags: |
+            git.askar.tv/nomad/alaskarseer:latest
