@@ -3,7 +3,7 @@ WEB_ROOT="/jellyfin/jellyfin-web"
 
 # your custom assets (place them in the same dir for simplicity)
 CUSTOM_BANNER="$WEB_ROOT/assets/img/banner-light.png"
-CUSTOM_ICON="$WEB_ROOT/assets/img/icon-transparent2.png"
+CUSTOM_ICON="$WEB_ROOT/assets/img/icon-transparent.png"
 CUSTOM_FAV="$WEB_ROOT/faveicon.ico/favicon.ico"
 
 # overwrite banner-light.*.png
