@@ -46,7 +46,7 @@ jobs:
       # Step 3: Add host entry for git.askar.tv
       - name: Add host entry
         run: |
-          echo "192.168.0.200 git.askar.tv" | sudo tee -a /etc/hosts
+          echo "192.168.0.200 git.askar.tv" | tee -a /etc/hosts
 
       # Step 4: Build and push the Docker image
       - name: Build and Push Image
