@@ -52,3 +52,5 @@ jobs:
           push: true # Push the image to Docker Hub
           tags: |
             git.askar.tv/nomad/alaskarfin:latest
+          add-hosts: |
+            git.askar.tv:192.168.0.200
