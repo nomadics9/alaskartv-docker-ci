@@ -13,7 +13,7 @@ find "$WEB_ROOT" -type f -name "banner-light.*.png" -exec cp -f "$CUSTOM_BANNER"
 find "$WEB_ROOT" -type f -name "icon-transparent.*.png" -exec cp -f "$CUSTOM_ICON" {} \;
 
 # overwrite favicon.ico (no hash)
-cp -f "$CUSTOM_FAV" "$WEB_ROOT/favicon.ico"
+find "$WEB_ROOT" -type f -name "favicon.*.ico" -exec cp -f "$CUSTOM_FAV" {} \;
 
 echo "✔ Custom assets applied"
 
