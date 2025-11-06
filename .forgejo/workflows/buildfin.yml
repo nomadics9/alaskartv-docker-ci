@@ -43,6 +43,10 @@ jobs:
           username: nomad
           password: ${{ secrets.FORGEJO_TOKEN }}
 
+      - run: |
+          getent hosts git.askar.tv
+          curl -vkI https://git.askar.tv/v2/ | sed -n '1,10p'
+
       # Step 4: Build and push the Docker image
       - name: Build and Push Image
         uses: docker/build-push-action@v6
