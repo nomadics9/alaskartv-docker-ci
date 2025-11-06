@@ -45,6 +45,7 @@ jobs:
 
       - run: |
           getent hosts git.askar.tv
+          apt instll curl -y
           curl -vkI https://git.askar.tv/v2/ | sed -n '1,10p'
 
       # Step 4: Build and push the Docker image
