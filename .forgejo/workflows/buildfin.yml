@@ -43,6 +43,11 @@ jobs:
           username: nomad
           password: ${{ secrets.FORGEJO_TOKEN }}
 
+      # Step 3: Add host entry for git.askar.tv
+      - name: Add host entry
+        run: |
+          echo "192.168.0.200 git.askar.tv" | sudo tee -a /etc/hosts
+
       # Step 4: Build and push the Docker image
       - name: Build and Push Image
         uses: docker/build-push-action@v6
@@ -52,5 +57,3 @@ jobs:
           push: true # Push the image to Docker Hub
           tags: |
             git.askar.tv/nomad/alaskarfin:latest
-          add-hosts: |
-            git.askar.tv:192.168.0.200
