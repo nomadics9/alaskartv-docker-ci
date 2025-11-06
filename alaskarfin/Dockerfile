@@ -10,7 +10,8 @@ RUN chmod +x /jellyfin/jellyfin-web/titlechange.sh && /jellyfin/jellyfin-web/tit
 
 
 RUN apt-get update && apt-get install -y jq && rm -rf /var/lib/apt/lists/*
-RUN chmod +x /jellyfin/jellyfin-web/titlechange.sh && /jellyfin/jellyfin-web/update-config.sh
+RUN chmod +x /jellyfin/jellyfin-web/update-config.sh && /jellyfin/jellyfin-web/update-config.sh
+RUN chmod +x /jellyfin/jellyfin-web/update-assets.sh && /jellyfin/jellyfin-web/update-assets.sh
 
 # Expose the same ports as the base image
 EXPOSE 8096
