@@ -29,7 +29,7 @@ NEW_LINKS='
 {
     "name": "Server Status",
     "icon": "storage",
-    "url": "https://user.askar.tv/my/account"
+    "url": "https://askar.tv/status"
 }'
 
 # Insert the new links into the "menuLinks" array
