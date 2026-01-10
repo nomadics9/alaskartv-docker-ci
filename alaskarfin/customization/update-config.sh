@@ -25,6 +25,11 @@ NEW_LINKS='
     "name": "Developer",
     "icon": "code",
     "url": "https://alaskar.dev"
+},
+{
+    "name": "Server Status",
+    "icon": "storage",
+    "url": "https://user.askar.tv/my/account"
 }'
 
 # Insert the new links into the "menuLinks" array
