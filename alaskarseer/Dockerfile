@@ -1,4 +1,4 @@
-FROM fallenbagel/jellyseerr:latest
+FROM ghcr.io/seerr-team/seerr:latest #fallenbagel/jellyseerr:latest
 
 RUN sed -i 's/Play on {mediaServerName}/Play on AlaskarTV/g' \
   /app/.next/static/chunks/*.js \
