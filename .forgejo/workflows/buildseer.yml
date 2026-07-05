@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Add host entry
         run: |
-          echo "192.168.0.200 git.askar.tv" | sudo tee -a /etc/hosts
+          echo "192.168.0.200 git.askar.tv" | tee -a /etc/hosts
           getent hosts git.askar.tv
 
       - name: Checkout code
