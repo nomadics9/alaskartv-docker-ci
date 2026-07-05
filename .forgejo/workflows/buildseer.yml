@@ -10,32 +10,26 @@ jobs:
     runs-on: host
 
     steps:
-      # Step 1: Check out the repository
+      - name: Add host entry
+        run: |
+          echo "192.168.0.200 git.askar.tv" | sudo tee -a /etc/hosts
+          getent hosts git.askar.tv
+
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # Step 2: Set up Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
+        with:
+          driver-opts: |
+            network=host
 
-      # # Step 3: Log in to Docker Hub
-      # - name: Log in to Docker Hub
-      #   uses: docker/login-action@v3
-      #   with:
-      #     username: ${{ secrets.DOCKER_USERNAME }}
-      #     password: ${{ secrets.DOCKER_PASSWORD }}
-      #
-      # # Step 4: Build and push the alaskarseer image
-      # - name: Build and Push alaskarseer Image
-      #   uses: docker/build-push-action@v6
-      #   with:
-      #     context: alaskarseer # Path to the build context
-      #     file: alaskarseer/Dockerfile # Path to the Dockerfile
-      #     push: true
-      #     tags: |
-      #       nomadics/alaskarseer:latest
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # Step 5: Log in to Forgejo
       - name: Log in to Forgejo
         uses: docker/login-action@v3
         with:
@@ -43,12 +37,12 @@ jobs:
           username: nomad
           password: ${{ secrets.FORGEJO_TOKEN }}
 
-      # Step 4: Build and push the Docker image
       - name: Build and Push Image
         uses: docker/build-push-action@v6
         with:
-          context: alaskarseer # Path to the build context
-          file: alaskarseer/Dockerfile # Path to the Dockerfile
-          push: true # Push the image to Docker Hub
+          context: alaskarseer
+          file: alaskarseer/Dockerfile
+          push: true
           tags: |
+            nomadics/alaskarseer:latest
             git.askar.tv/nomad/alaskarseer:latest
